@@ -2,65 +2,34 @@ import allure
 from allure_commons.types import Severity
 from selene import browser, have
 
+from SberDevices_test_project.pages.base_page import open_main_page, button_for_shopping_is_visible, \
+    switch_on_tab_installment
 
-@allure.title('Открыть главную страницу "SberDevices"')
-@allure.id("1001")
-@allure.issue("issue")
-@allure.testcase("testcase")
-@allure.tag("web")
-@allure.severity(Severity.CRITICAL)
-@allure.label("owner", "zmamedov")
-@allure.feature("Issues в репозитории")
-@allure.story("Просмотр Issues в репозитории")
-@allure.link("https://sberdevices.ru", name="Testing")
+
+@allure.title('Open main page of "SberDevices"')
+@allure.tag('web')
+@allure.severity(Severity.NORMAL)
+@allure.label('owner', 'zmamedov')
+@allure.feature('Main Page')
+@allure.story('Open main page')
+@allure.link('https://sberdevices.ru', name='SberDevices')
 def test_open_main_page():
-    with allure.step('Открыть главную страницу магазина "SberDevices"'):
-        browser.open('/')
+    open_main_page()
 
-    with allure.step('Проверить, что на главной странице есть кнопка "За покупками"'):
-        browser.element('.sc-921013a8-4').should(have.text('За покупками'))
+    button_for_shopping_is_visible()
 
 
-@allure.title('Проверить поле поиска')
-@allure.id("1002")
-@allure.issue("issue")
-@allure.testcase("testcase")
-@allure.tag("web")
-@allure.severity(Severity.CRITICAL)
-@allure.label("owner", "zmamedov")
-@allure.feature("Issues в репозитории")
-@allure.story("Просмотр Issues в репозитории")
-@allure.link("https://sberdevices.ru", name="Testing")
-def test_search():
-    with allure.step('Открыть главную страницу магазина "SberDevices"'):
-        browser.open('/')
+@allure.title('Go to the tab "Installment"')
+@allure.tag('web')
+@allure.severity(Severity.NORMAL)
+@allure.label('owner', 'zmamedov')
+@allure.feature('Main Page')
+@allure.story('Open tab "Installment"')
+@allure.link('https://sberdevices.ru', name='SberDevices')
+def test_switch_on_tab_installment():
+    open_main_page()
 
-    with allure.step('Ввести в поле поиска "SberBoom"'):
-        browser.element('.digi-instant-search').click().type('SberBoom').press_enter()
-
-    with allure.step('В результатах поиска присутствует товар "Умная колонка SberBoom"'):
-        browser.all('.sc-921013a8-4').element_by(have.exact_text('Умная колонка SberBoom'))
-
-
-@allure.title('Открыть вкладку "Рассрочка"')
-@allure.id("1001")
-@allure.issue("issue")
-@allure.testcase("testcase")
-@allure.tag("web")
-@allure.severity(Severity.CRITICAL)
-@allure.label("owner", "zmamedov")
-@allure.feature("Issues в репозитории")
-@allure.story("Просмотр Issues в репозитории")
-@allure.link("https://sberdevices.ru", name="Testing")
-def test_open_tab_installment():
-    with allure.step('Открыть главную страницу магазина "SberDevices"'):
-        browser.open('/')
-
-    with allure.step('Нажать на вкладку "Рассрочка"'):
-        browser.all('.sc-e64983b4-4').second.click()
-
-    with allure.step('В открывшейся странице есть надпись "Рассрочка"'):
-        browser.element('.sc-c0a896f4-4').should(have.exact_text('Рассрочка'))
+    switch_on_tab_installment()
 
 
 @allure.title('Добавить товар в корзину')
