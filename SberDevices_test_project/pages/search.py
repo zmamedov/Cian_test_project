@@ -12,5 +12,7 @@ def type_device_name(device_name):
 
 
 def check_search_result():
-    with allure.step('В результатах поиска присутствует товар "Умная колонка SberBoom"'):
-        browser.all('.sc-921013a8-4').element_by(have.exact_text('Умная колонка SberBoom'))
+    with allure.step('Название найденных товаров содержит "SberBoom"'):
+        for device in browser.all('.digi-product__meta'):
+            device.should(have.text('SberBoom'))
+

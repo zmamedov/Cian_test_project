@@ -16,6 +16,7 @@ def test_search():
     device_name = 'SberBoom'
 
     open_main_page()
+
     click_on_search()
     type_device_name(device_name)
 

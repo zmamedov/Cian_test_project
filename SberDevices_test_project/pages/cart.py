@@ -12,9 +12,9 @@ def open_cart():
         browser.element('.sites-components__sc-1g65x4x-1').click()
 
 
-def check_count_devices_in_cart(count):
-    with allure.step(f'В корзине ровно {count} товар'):
-        browser.element('.text-x32').should(have.exact_text(f'В корзине {count} товар'))
+def check_count_devices_in_cart(count_devices):
+    with allure.step(f'В корзине ровно {count_devices} товар'):
+        browser.element('.text-x32').should(have.exact_text(f'В корзине {count_devices} товар'))
 
 
 def clear_cart():
