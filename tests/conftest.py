@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from utils import attach
 
 
 @pytest.fixture(scope="session", autouse=True)
@@ -38,4 +39,8 @@ def browser_management():
 
     yield
 
+    attach.add_screenshot(browser)
+    attach.add_html(browser)
+    attach.add_logs(browser)
+    attach.add_video(browser)
     browser.quit()

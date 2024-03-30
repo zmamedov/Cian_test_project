@@ -3,7 +3,8 @@ from selene import browser, have, be
 
 
 def click_on_search():
-    browser.element('.digi-instant-search').should(be.visible).click()
+    with allure.step(f'Кликнуть на поле поиска'):
+        browser.element('.digi-instant-search').should(be.visible).click()
 
 
 def type_device_name(device_name):
