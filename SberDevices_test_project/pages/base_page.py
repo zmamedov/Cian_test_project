@@ -1,5 +1,5 @@
 import allure
-from selene import browser, have, be
+from selene import browser, have
 
 
 def open_main_page():
@@ -20,17 +20,3 @@ def switch_on_tab_installment():
 def check_installment_title():
     with allure.step('Проверить заголовок вкладки'):
         browser.element('.sc-c0a896f4-4').should(have.exact_text('Рассрочка'))
-
-
-def click_on_search():
-    browser.element('.digi-instant-search').should(be.visible).click()
-
-
-def type_device_name(device_name):
-    with allure.step(f'Ввести в поле поиска {device_name}'):
-        browser.element('.digi-instant-search').type(device_name).press_enter()
-
-
-def check_search_result():
-    with allure.step('В результатах поиска присутствует товар "Умная колонка SberBoom"'):
-        browser.all('.sc-921013a8-4').element_by(have.exact_text('Умная колонка SberBoom'))
