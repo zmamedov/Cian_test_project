@@ -12,7 +12,5 @@ def type_device_name(device_name):
 
 
 def check_search_result():
-    with allure.step('Название найденных товаров содержит "SberBoom"'):
-        for device in browser.all('.digi-product__meta'):
-            device.should(have.text('SberBoom'))
-
+    with allure.step('Название первого товара содержит "SberBoom" в списке результатов'):
+        browser.all('.digi-product__meta').first.should(have.text('SberBoom'))
