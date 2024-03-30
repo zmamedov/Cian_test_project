@@ -9,7 +9,7 @@ def click_on_search():
 
 def type_device_name(device_name):
     with allure.step(f'Ввести в поле поиска "{device_name}"'):
-        browser.element('.digi-instant-search').type(device_name).press_enter()
+        browser.element('.digi-instant-search').set_value(device_name).press_enter()
 
 
 def check_search_result():
