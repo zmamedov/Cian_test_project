@@ -20,7 +20,7 @@
 ### Запуск автотестов осуществляется с использованием Jenkins
 > [Ссылка на сборку в Jenkins](https://jenkins.autotests.cloud/job/zmamedov-qa_guru_SberDevices_test_project/)
 
-#### Для запуск автотестов в Jenkins
+#### Для запуска автотестов в Jenkins
 1. Открыть [задачу в Jenkins](https://jenkins.autotests.cloud/job/zmamedov-qa_guru_SberDevices_test_project/)
 
 ![jenkins job main page](SberDevices_test_project/pictures/Jenkins_job_main_page.png)
