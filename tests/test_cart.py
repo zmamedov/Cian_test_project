@@ -1,10 +1,9 @@
 import allure
 from allure_commons.types import Severity
 
-from SberDevices_test_project.pages.base_page import open_main_page
-from SberDevices_test_project.pages.cart import (add_device_to_cart, open_cart, check_count_devices_in_cart,
-                                                 clear_cart, check_empty_cart)
-from SberDevices_test_project.pages.search import click_on_search, type_device_name
+from sber_devices_test_project.pages.base_page import base_page
+from sber_devices_test_project.pages.cart_page import cart_page
+from sber_devices_test_project.pages.search_page import search_page
 
 
 @allure.title('Add new device to the cart')
@@ -15,14 +14,14 @@ from SberDevices_test_project.pages.search import click_on_search, type_device_n
 @allure.story('Add product')
 @allure.link('https://sberdevices.ru', name='SberDevices')
 def test_add_product_to_cart():
-    open_main_page()
+    base_page.open_main_page()
 
-    click_on_search()
-    type_device_name('Sber')
-    add_device_to_cart()
-    open_cart()
+    search_page.click_on_search()
+    search_page.type_device_name('Sber')
+    cart_page.add_device_to_cart()
+    cart_page.open_cart()
 
-    check_count_devices_in_cart(count_devices=1)
+    cart_page.check_count_devices_in_cart(count_devices=1)
 
 
 @allure.title('Full clear of the cart')
@@ -33,12 +32,12 @@ def test_add_product_to_cart():
 @allure.story('Clear cart')
 @allure.link('https://sberdevices.ru', name='SberDevices')
 def test_clear_cart():
-    open_main_page()
+    base_page.open_main_page()
 
-    click_on_search()
-    type_device_name('Sber')
-    add_device_to_cart()
-    open_cart()
-    clear_cart()
+    search_page.click_on_search()
+    search_page.type_device_name('Sber')
+    cart_page.add_device_to_cart()
+    cart_page.open_cart()
+    cart_page.clear_cart()
 
-    check_empty_cart()
+    cart_page.check_empty_cart()

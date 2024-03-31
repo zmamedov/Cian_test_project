@@ -1,8 +1,7 @@
 import allure
 from allure_commons.types import Severity
 
-from SberDevices_test_project.pages.base_page import open_main_page, button_for_shopping_is_visible, \
-    switch_on_tab_installment, check_installment_title
+from sber_devices_test_project.pages.base_page import base_page
 
 
 @allure.title('Open main page of "SberDevices"')
@@ -13,9 +12,9 @@ from SberDevices_test_project.pages.base_page import open_main_page, button_for_
 @allure.story('Open main page')
 @allure.link('https://sberdevices.ru', name='SberDevices')
 def test_open_main_page():
-    open_main_page()
+    base_page.open_main_page()
 
-    button_for_shopping_is_visible()
+    base_page.button_for_shopping_is_visible()
 
 
 @allure.title('Go to the tab "Installment"')
@@ -26,8 +25,8 @@ def test_open_main_page():
 @allure.story('Open tab "Installment"')
 @allure.link('https://sberdevices.ru', name='SberDevices')
 def test_switch_on_tab_installment():
-    open_main_page()
+    base_page.open_main_page()
 
-    switch_on_tab_installment()
+    base_page.switch_on_tab_installment()
 
-    check_installment_title()
+    base_page.check_installment_title()

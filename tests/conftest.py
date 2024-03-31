@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from utils import attach
+from sber_devices_test_project.utils import attach
 
 
 @pytest.fixture(scope="session", autouse=True)

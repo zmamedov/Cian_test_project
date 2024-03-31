@@ -1,8 +1,8 @@
 import allure
 from allure_commons.types import Severity
 
-from SberDevices_test_project.pages.base_page import open_main_page
-from SberDevices_test_project.pages.search import click_on_search, type_device_name, check_search_result
+from sber_devices_test_project.pages.base_page import base_page
+from sber_devices_test_project.pages.search_page import search_page
 
 
 @allure.title('Find device by title')
@@ -15,9 +15,9 @@ from SberDevices_test_project.pages.search import click_on_search, type_device_n
 def test_search():
     device_name = 'SberBoom'
 
-    open_main_page()
+    base_page.open_main_page()
 
-    click_on_search()
-    type_device_name(device_name)
+    search_page.click_on_search()
+    search_page.type_device_name(device_name)
 
-    check_search_result()
+    search_page.check_search_result()
